@@ -2,7 +2,7 @@
 /*
 Plugin Name: Developer Share Buttons
 Description: Share buttons with no CSS and no JavaScript
-Version: 1.0.0
+Version: 1.0.1
 Author: Terminal Pixel
 Author URI: http://wwww.terminalpixel.co.uk/
 License: GPL3
@@ -325,7 +325,7 @@ if ( !class_exists( 'DeveloperShareButtons' ) ) {
             if ( $links = static::get_profile_links() ) {
                 $html = '<div class="' . static::$slug . '-profiles">';
                 foreach ($links as $service_id => $service_link) {
-                    $html .= '<a class="' . static::$slug . '-link ' . static::$slug . '-link--' . $service_id .'" href="' . $service_link['url'] . '"><span class="' . static::$slug . '-link__text ' . static::$slug . '-link--' . $service_id .'__text">' . $service_link['title'] . '</span></a>';
+                    $html .= '<a class="' . static::$slug . '-link ' . static::$slug . '-link--' . $service_id .'" href="' . $service_link['url'] . '"><span class="' . static::$slug . '-link__text ' . static::$slug . '-link--' . $service_id .'__text">' . $service_link['title'] . '</span></a> ';
                 }
                 $html .= '</div>';
                 echo $html;
@@ -358,7 +358,7 @@ if ( !class_exists( 'DeveloperShareButtons' ) ) {
 
     if ( !function_exists( 'the_dev_share_buttons' ) ) {
         function the_dev_share_buttons( $services = false, $url = '', $title = '', $text = '', $image = '' ) {
-            return DeveloperShareButtons::the_buttons( $services, $url, $title, $text, $image );
+            DeveloperShareButtons::the_buttons( $services, $url, $title, $text, $image );
         }
     }
 
@@ -370,7 +370,7 @@ if ( !class_exists( 'DeveloperShareButtons' ) ) {
 
     if ( !function_exists( 'the_dev_share_links' ) ) {
         function the_dev_profile_links() {
-            return DeveloperShareButtons::the_profile_links();
+            DeveloperShareButtons::the_profile_links();
         }
     }
 }
